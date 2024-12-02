@@ -2,7 +2,7 @@ controller_ip=$(yq e 'select(.kind == "AKODeploymentConfig").spec.controller' /h
 username=$(yq e 'select(.metadata.name == "controller-credentials").data.username' /home/kubo/akodeploymentconfig.yaml | base64 -d)
 password=$(yq e 'select(.metadata.name == "controller-credentials").data.password' /home/kubo/akodeploymentconfig.yaml | base64 -d)
 
-mkdir /home/kubo/avi-gslb
+mkdir -p /home/kubo/avi-gslb
 cat > /home/kubo/avi-gslb/cluster_uuid.txt << EOF
 show cluster
 EOF
