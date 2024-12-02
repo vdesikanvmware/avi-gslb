@@ -87,10 +87,10 @@ show serviceengine
 EOF
 
 echo "waiting for service engine to be up"
-serviceengine_status=$(avi_shell --address 192.168.111.106 --user admin --password 'Admin!23' --file /home/kubo/avi-gslb/se.txt | grep appengine | grep OPER_UP)
+serviceengine_status=$(avi_shell --address $controller_ip --user admin --password 'Admin!23' --file /home/kubo/avi-gslb/se.txt | grep appengine | grep OPER_UP)
 while [ -z "$serviceengine_status" ];
 do
-  serviceengine_status=$(avi_shell --address 192.168.111.106 --user admin --password 'Admin!23' --file /home/kubo/avi-gslb/se.txt | grep appengine | grep OPER_UP)
+  serviceengine_status=$(avi_shell --address $controller_ip --user admin --password 'Admin!23' --file /home/kubo/avi-gslb/se.txt | grep appengine | grep OPER_UP)
   sleep 60
   echo "waiting"
 done
