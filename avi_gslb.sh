@@ -4,6 +4,7 @@ virtualenv avi_shell
 source avi_shell/bin/activate
 pip install avi_shell-21.1.6-9092.tar.gz
 sudo install avi_shell/bin/avi_shell /usr/local/bin/avi_shell
+deactivate
 
 
 controller_ip=$(yq e 'select(.kind == "AKODeploymentConfig").spec.controller' /home/kubo/akodeploymentconfig.yaml)
