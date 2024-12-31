@@ -1,3 +1,9 @@
+sudo pip install virtualenv
+virtualenv avi_shell
+cd avi_shell/
+source ./bin/activate
+pip install ../avi_shell-18.2.1-9010.tar.gz
+
 controller_ip=$(yq e 'select(.kind == "AKODeploymentConfig").spec.controller' /home/kubo/akodeploymentconfig.yaml)
 username=$(yq e 'select(.metadata.name == "controller-credentials").data.username' /home/kubo/akodeploymentconfig.yaml | base64 -d)
 password=$(yq e 'select(.metadata.name == "controller-credentials").data.password' /home/kubo/akodeploymentconfig.yaml | base64 -d)
